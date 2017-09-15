@@ -69,7 +69,7 @@ def blip_one(box_goes_below):
 
     if box_goes_below < .5: # box should flash above
         print '|' + ''.center(7, '=') + '|'
-        print '| ' + '█'.ljust(6, ' ') + '|'
+        print '| ' + '█'.ljust(8, ' ') + '|'
         print '| - - - |'
         print '|' + ''.center(7, ' ') + '|'
         print '|' + ''.center(7, '=') + '|'
@@ -79,7 +79,7 @@ def blip_one(box_goes_below):
         print '|' + ''.center(7, '=') + '|'
         print '|' + ''.center(7, ' ') + '|'
         print '| - - - |'
-        print '| ' + '█'.ljust(6, ' ') + '|'
+        print '| ' + '█'.ljust(8, ' ') + '|'
         print '|' + ''.center(7, '=') + '|'
         init_number[0] = init_number[0] - 1
         flash_reset()
@@ -88,7 +88,7 @@ def blip_two(box_goes_below):
 
     if box_goes_below < .5: # box should flash above
         print '|' + ''.center(7, '=') + '|'
-        print '|' + '█'.center(7, ' ') + '|'
+        print '|' + '█'.center(9, ' ') + '|'
         print '| - - - |'
         print '|' + ''.center(7, ' ') + '|'
         print '|' + ''.center(7, '=') + '|'
@@ -98,7 +98,7 @@ def blip_two(box_goes_below):
         print '|' + ''.center(7, '=') + '|'
         print '|' + ''.center(7, ' ') + '|'
         print '| - - - |'
-        print '|' + '█'.center(7, ' ') + '|'
+        print '|' + '█'.center(9, ' ') + '|'
         print '|' + ''.center(7, '=') + '|'
         init_number[1] = init_number[1] - 1
         flash_reset()
@@ -107,7 +107,7 @@ def blip_three(box_goes_below):
 
     if box_goes_below < .5: # box should flash above
         print '|' + ''.center(7, '=') + '|'
-        print '|' + '█'.rjust(6, ' ') + ' |'
+        print '|' + '█'.rjust(8, ' ') + ' |'
         print '| - - - |'
         print '|' + ''.center(7, ' ') + '|'
         print '|' + ''.center(7, '=') + '|'
@@ -117,7 +117,7 @@ def blip_three(box_goes_below):
         print '|' + ''.center(7, '=') + '|'
         print '|' + ''.center(7, ' ') + '|'
         print '| - - - |'
-        print '|' + '█'.rjust(6, ' ') + ' |'
+        print '|' + '█'.rjust(8, ' ') + ' |'
         print '|' + ''.center(7, '=') + '|'
         init_number[2] = init_number[2] - 1
         flash_reset()
@@ -131,10 +131,10 @@ your_answers = []
 number_correct = 0
 
 for i in range(1):
-    
-    print 'Question ' + str(i + 1) + ' :'
 
     for j in range(number_of_flashes):
+    
+    	print 'Question ' + str(i + 1) + ' :'
 
         which_blip = random.uniform(0, 1)
         box_goes_below = random.uniform(0, 1)
