@@ -16,15 +16,10 @@ print '\n'
 yesChoice = ['yes', 'y']
 noChoice = ['no', 'n']
 
-input = raw_input("Do you need instructions? (y/N) ").lower()
+input = raw_input("Do you need instructions? (y/n) ").lower()
 
 if input in yesChoice:
-    print 'There are 15 questions in this game. The game board will have 3 blips. \
-    At the start of each question, each blip represents the number 5. \
-    During each question, boxes \
-    will randomly flash above or below the blips. If a box appears above a blip, \
-    add 1 to the value of the blip. If a box appears below a blip, subtract 1. \
-    Once all the boxes are done flashing, I\'ll ask you for the new three digit number!'
+    print """There are 15 questions in this game. The game board will have 3 blips. At the start of each question, each blip represents the number 5. During each question, boxes will randomly flash above or below the blips. If a box appears above a blip add 1 to the value of the blip. If a box appears below a blip, subtract 1. Once all the boxes are done flashing, I\'ll ask you for the new three digit number"""
 
     raw_input('When you\'re done, press Enter to continue.')
     os.system('clear')
@@ -41,17 +36,18 @@ def draw_board():
 	print '|' + ''.center(7, ' ') + '|'
 	print '|' + ''.center(7, '=') + '|'
 
-draw_board()
-
 init_number = [5, 5, 5]
-flash_duration = 2
+flash_duration = 1 
 time_between_questions = 5
-number_of_flashes = 5
+number_of_flashes = [5, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 8, 8, 8] 
 
 def flash_reset():
     time.sleep(flash_duration)
     os.system('clear')
-    
+    draw_board()
+    time.sleep(.1)
+    os.system('clear')
+
 def wait_for_next_question():
     os.system('clear')
     for i in range(time_between_questions): 
@@ -82,7 +78,8 @@ def blip_one(box_goes_below):
         print '| ' + '█'.ljust(8, ' ') + '|'
         print '|' + ''.center(7, '=') + '|'
         init_number[0] = init_number[0] - 1
-        flash_reset()
+        flash_reset() 
+
     
 def blip_two(box_goes_below):
 
@@ -103,6 +100,7 @@ def blip_two(box_goes_below):
         init_number[1] = init_number[1] - 1
         flash_reset()
 
+
 def blip_three(box_goes_below):
 
     if box_goes_below < .5: # box should flash above
@@ -122,6 +120,7 @@ def blip_three(box_goes_below):
         init_number[2] = init_number[2] - 1
         flash_reset()
 
+
 raw_input('Hit Enter to start!')
 os.system('clear')
 
@@ -129,12 +128,18 @@ correct_or_incorrect = []
 correct_answers = []
 your_answers = []
 number_correct = 0
+number_of_questions = 15
 
-for i in range(1):
+for i in range(number_of_questions):
 
-    for j in range(number_of_flashes):
-    
-    	print 'Question ' + str(i + 1) + ' :'
+    print 'Question ' + str(i + 1)
+    time.sleep(1)
+    os.system('clear')
+    draw_board()
+    time.sleep(1)
+    os.system('clear')
+
+    for j in range(number_of_flashes[i]):
 
         which_blip = random.uniform(0, 1)
         box_goes_below = random.uniform(0, 1)
@@ -159,12 +164,16 @@ for i in range(1):
         correct_or_incorrect.append('Question ' + str(i + 1) + ': Wrong :(')
 
     os.system('clear')
+    init_number = [5, 5, 5] # reset number to 555 
     
-    wait_for_next_question()
+    if i < number_of_questions:
+	wait_for_next_question()
+    else:
+	pass
 
 os.system('clear')
 print 'You made it to the end!'
-print 'You got ' + str(number_correct) + ' correct our of 15.'
+print 'You got ' + str(number_correct) + ' correct out of ' + str(number_of_questions)
 raw_input('Hit Enter to continue...')
 os.system('clear')
 pprint(correct_or_incorrect)
@@ -172,13 +181,4 @@ print 'Here were your answers: '
 pprint(your_answers)
 print 'And here were the correct ones: '
 pprint(correct_answers)
-
-    
-
-
-
-
-
-
-
     
