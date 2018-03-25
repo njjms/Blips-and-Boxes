@@ -20,7 +20,7 @@ noChoice = ['no', 'n']
 input = raw_input("Do you need instructions? (y/n) ").lower()
 
 if input in yesChoice:
-    print """There are 15 questions in this game. The game board will have 3 blips. At the start of each question, each blip represents the number 5. During each question, boxes will randomly flash above or below the blips. If a box appears above a blip add 1 to the value of the blip. If a box appears below a blip, subtract 1. Once all the boxes are done flashing, I\'ll ask you for the new three digit number"""
+    print """This game consists of 15 questions. Each question begins with an empty board with three dashes in the center. Each dash initially represents the number 5. For each question, a number of boxes will flash sequentially above and below the dashes - if a box flashes above a dash, add one to the number of that dash. If a box flashes below that dash, subtract one from the number of that dash. At the end of the question, you will be prompted to input the numbers of each dash. You will enter these three numbers as a single number, for example 555 or 674. At the end of the game, you will be told how many questions you got correct and what the correct answers were."""
 
     raw_input('When you\'re done, press Enter to continue.')
     os.system('clear')
