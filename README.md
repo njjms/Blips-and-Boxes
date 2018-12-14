@@ -8,3 +8,5 @@ As far as I've heard/read on reddit, everybody kind of tanks this section of the
 4) nobody seems to know what happens if you score well on it. Like math and science sections people definitely know they need to score a certain X points in order to get the job they want, but this section's score doesn't appear in the requisites for any rating, at least that I've seen.
 
 So I figured some folks might want to practice this section beforehand. If you get into some top secret, Area 51 rating... don't let me know, I guess?
+
+At some point, I'll pygame this up and maybe put it on a site somewhere.
